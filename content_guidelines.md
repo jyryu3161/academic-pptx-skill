@@ -57,7 +57,7 @@ The most important formatting rule. Every content slide title must be a complete
 One chart, table, diagram, equation block, or map per slide. If you need two charts to make a point, consider whether they are really one comparison (which can be combined) or two separate points (which need two slides).
 
 ### Every exhibit must earn its place
-The exhibit must directly support the action title. Test: cover the exhibit and read the title — does the title still make sense without it? If yes, the exhibit isn't necessary. Cover the title and look at the exhibit — is the takeaway obvious? If not, you need a stronger annotation or a clearer action title.
+The exhibit must substantiate the action title. Ask which observation supports the claim and whether the audience can identify it. A clear title alone does not make its evidence unnecessary. If the exhibit cannot support the claim, revise the claim or find appropriate evidence.
 
 ### Annotate the key finding on the chart
 Do not make the audience search. Mark the key data point, bar, line, or cell with:
@@ -78,7 +78,7 @@ Place figures on the **left side** of the slide. Interpretive bullets or discuss
 Tables require more cognitive load to parse quickly under time pressure. Use a graph when showing a trend, comparison, or distribution. Reserve tables for precise numerical comparisons where the exact values matter.
 
 ### Rebuild figures from your paper
-Do not copy figures directly from a PDF. Paper figures are typically too small, use print-resolution fonts, and have captions that will not render well on screen. Rebuild them at presentation resolution with larger fonts (≥ 16 pt for axis labels).
+Prefer rebuilding plots from verified data with presentation-size labels (≥ 16 pt), preserving scales, units and uncertainty. Do not reverse-engineer missing values or redraw scientific imagery as if it were measured data. If underlying data are unavailable, use a permitted high-resolution original with clear attribution, careful cropping and readable annotations; never distort or selectively omit evidence.
 
 ### Don't include exhibits you won't discuss
 If you include it, discuss it. If you won't have time to discuss it, move it to the appendix.
@@ -122,10 +122,10 @@ Introduce sources verbally before the citation appears: "Smith and colleagues fo
 ### Figures from published sources
 - Attribution caption directly beneath the figure (e.g., "Source: Jones et al., 2021, Fig. 3")
 - Full reference on the References slide
-- Note: reproducing a figure from a published paper may require publisher permission. For conference presentation, this is typically covered by fair use; check if in doubt.
+- Note: reproducing a figure from a published paper may require publisher permission. Check the applicable license, permission and venue requirements; attribution alone does not authorize reuse, and legal exceptions vary. Do not assume a conference presentation is automatically permitted.
 
 ### References slide
-The last slide before the appendix must be a References slide listing complete citations for every source cited in the deck. Format consistently with your field's conventions.
+Include complete citations for every cited source, consistently formatted. Place references (and acknowledgements if needed) before Conclusions, so Conclusions is the last main-talk slide. Long bibliographies may continue in a clearly labeled backup section; keep citations on the slide where evidence is used.
 
 ---
 
@@ -164,18 +164,19 @@ Required slides for a complete academic presentation, in order:
 - Connect back to the research question from the opening
 - Address the main limitation(s) directly — pre-empt the audience's objection
 
+### References / Acknowledgements
+- Complete citations for all sources cited in the deck; verified links where useful.
+- Place before Conclusions, not after the main-talk ending.
+
 ### Conclusions (1 slide)
 - 2–4 bullet points restating the key takeaways
 - **This slide stays on screen during Q&A. It is the last slide the audience sees.**
 - Do NOT follow it with "Thank You" or a blank slide
 
-### Contact / Next Steps (on conclusions slide or a final standalone slide)
+### Contact / Next Steps (on conclusions slide)
 - Email address or affiliation URL
 - QR code or shortened URL linking to slides, preprint, or working paper
 - "Work in progress — feedback welcome" if appropriate
-
-### References
-- Complete citations for all sources cited in the deck
 
 ### Appendix (clearly labeled)
 - Pre-built Q&A slides anticipating likely audience questions
@@ -223,7 +224,7 @@ When you say "I'll stop there," the conclusions slide should already be on scree
 - Minimum 20 pt body text; 24 pt+ titles
 - High contrast between text and background (dark text on white, or white on dark)
 - Do not rely on colour alone to convey meaning (use labels, patterns, or shapes as well)
-- Provide alt text on figures if the slides will be circulated as a PDF
+- Provide figure alt text and check reading order. Verify whether the exported PDF retains accessibility metadata; do not assume it does.
 
 ---
 
@@ -243,3 +244,7 @@ When you say "I'll stop there," the conclusions slide should already be on scree
 | Ending on "Thank You" | End on conclusions slide; it stays up during Q&A |
 | Burying the research question | State it explicitly, on its own slide, in slides 2–3 |
 | No references slide | Always include one |
+
+## 10. Scientific evidence and uncertainty
+
+Apply [research_patterns.md](research_patterns.md). Specify sample definitions, units, uncertainty and provenance. Distinguish association from causation, prediction from measurement, and proposed work from validated findings. Keep action titles bounded by the population/model and design. Missing data must remain missing. Template examples are illustrative, not a source of facts or citations.
