@@ -1,58 +1,54 @@
-# Academic Presentations Skill for Claude (plus basic PDF summary of general advice)
+# Academic Presentations Skill
 
-A Claude Skill for creating high-quality academic presentations: conference talks, seminar slides, thesis defenses, and grant briefings.  Also includes a PDF which summarizes the advice (does not require use of Claude). 
+Communication-first academic slides for conference talks, seminars, thesis defenses, grant briefings and lab meetings. This fork extends the original skill and the supplied text-layout revision while keeping the original **navy `1F4E79` / blue `2E75B6` default**.
 
-## What It Does
+## What's improved
 
-This skill overrides Claude's default design-forward presentation style and replaces it with communication-first standards appropriate for academic and analytical contexts. When active, Claude will:
+- Argument-led outlines, action titles and evidence-first slide patterns.
+- Optional teal and print themes with semantic color tokens; consistent default palette.
+- Korean/English typography and realistic font-fallback guidance.
+- Biomedical, AI/ML benchmark, systems-biology, docking and grant-aim patterns.
+- Explicit uncertainty, units, sample definitions, provenance and claim-strength checks.
+- Semantic bullet lists, conservative opt-in XML text settings and native slide-number fields.
+- References before conclusions, so the main talk ends on takeaways and contact details.
+- No blanket box merging/widening or destructive global font reset.
 
-- Write every slide title as a **complete sentence stating the takeaway** ("action title"), not a topic label
-- Structure the deck as a **logical argument** (situation → complication → resolution), not a collection of independent slides
-- Apply the **ghost deck test**: the action titles alone, read in sequence, should tell the full story
-- Place **one exhibit per results slide** and annotate the key finding directly on the chart
-- Apply **citation standards**: in-text citations on every borrowed figure, a References slide at the end
-- End on a **Conclusions slide** that stays on screen during Q&A — never on "Thank You" or a blank
-- Apply minimal, communication-first design: white backgrounds, single sans-serif font, three colours maximum, no decorative icons
+## Use
 
-## Installation
+Install the repository's skill folder using your assistant platform's supported custom-skill workflow, with SKILL.md at the skill root. Load it together with the platform's available presentation/PPTX implementation skill. Platform menus and dependencies vary; this skill is not a standalone deck generator.
 
-1. Download this repository as a zip file (click **Code → Download ZIP** above)
-2. In [claude.ai](https://claude.ai), go to **Customize → Skills**
-3. Upload the zip file
-4. Confirm the skill appears in your skills list and is toggled on
+Example requests:
 
-> **Requirement:** Code execution and file creation must be enabled in **Settings → Capabilities**.
+- “Make a 15-minute research presentation from this paper. Keep the default theme.”
+- “학위논문 심사 발표를 한국어로 만들어줘. 기본 남색 스킴을 유지해줘.”
+- “Use the accessible-teal theme, with marker shapes and labels for the comparison.”
+- “Prepare a print-friendly grant-aim deck; distinguish preliminary results from proposed work.”
 
-## Usage
+The original PDF advice summary remains in the repository. The Markdown guides are the current source of instructions where they differ.
 
-Just ask naturally:
+## Files
 
-- *"Make slides for my conference paper on X"*
-- *"Build a deck for my thesis defense"*
-- *"Create a seminar presentation about my research on Y"*
+- [SKILL.md](SKILL.md): entry point and workflow.
+- [content_guidelines.md](content_guidelines.md): argument, citations and narrative.
+- [slide_patterns.md](slide_patterns.md): compositional PptxGenJS examples; illustrative, not research evidence.
+- [design_system.md](design_system.md): palettes, typography and accessibility.
+- [research_patterns.md](research_patterns.md): research-specific evidence and structure.
+- [pptx_text_rules.md](pptx_text_rules.md): text layout, optional helper and final visual QA.
+- [scripts/fix_pptx_text.py](scripts/fix_pptx_text.py): conservative XML postprocessor.
+- tests/: regression tests for the helper.
 
-Claude will detect the academic context, load this skill automatically, and apply all guidelines before generating any slides. You do not need to give any special instructions.
+## Optional helper and tests
 
-This skill works alongside Anthropic's built-in PPTX skill, which handles the technical file generation. This skill handles content, argument structure, and design standards.
-
-## File Structure
-
+```bash
+python -m pip install -r requirements.txt
+python scripts/fix_pptx_text.py input.pptx output.pptx --word-wrap
+python scripts/fix_pptx_text.py input.pptx output.pptx --slide-numbers --skip-numbers 1
+python -m pip install -r requirements-test.txt
+python -m unittest discover -s tests -v
 ```
-academic-pptx-skill/
-├── SKILL.md                  # Entry point: routing logic and design standards
-├── content_guidelines.md     # Argument structure, action titles, citations, deck architecture
-├── slide_patterns.md         # Per-slide-type implementation patterns with PptxGenJS code
-└── README.md                 # This file
-```
 
-## Background
+Python 3.10+ is required. Test tooling is separate from the prose skill. Rendering needs your chosen generator and a presentation renderer. Unit tests do not prove PowerPoint visual fidelity, font availability or accessibility. See [VALIDATION.md](VALIDATION.md) for validation scope.
 
-The guidelines in this skill draw on:
-- Barbara Minto's *Pyramid Principle* (structured argument, action titles)
-- Naegle (2021), "Ten simple rules for effective presentation slides," *PLOS Computational Biology*
-- Standard consulting and academic presentation practice (McKinsey, conference norms)
-- Community feedback on Claude's default presentation behaviour in professional contexts
+## Background and license
 
-## License
-
-MIT — free to use, adapt, and share.
+The original guidelines draw on Barbara Minto's *Pyramid Principle*, Naegle (2021), “Ten simple rules for effective presentation slides,” *PLOS Computational Biology*, and academic presentation practice. Existing MIT copyright and permission notice are retained in [LICENSE](LICENSE). This fork adapts the supplied text-layout revision's principles while replacing its unsafe automatic geometry edits with opt-in behavior.
